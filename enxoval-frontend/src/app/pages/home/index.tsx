@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ICategoria } from "../../@libs/types";
 import { CategoriaService } from "../../services/categoria-service";
-import HighLightSection from "../../componentes/itemSelecionado";
+import HighLightSection from "../../componentes/item-selecionado";
 import Section from "../../componentes/seccao";
 
 function HomePage() {
