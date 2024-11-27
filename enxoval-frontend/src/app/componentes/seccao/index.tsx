@@ -1,8 +1,8 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { ICategoria, IItem } from "../../@libs/types";
-import { ItemService } from "../../services/item-service";
 import ItemCard from "../ItemCard";
+import { ItemService } from "../../services/item-service";
 
 
 
@@ -16,10 +16,9 @@ function Section({
     const [itens, setItens] = useState<IItem[]>([]);
 
     useEffect(() => {
-        //Executa o que está aqui dentro quando carrega o componente
 
         if(categoria.id){
-            ItemService.getPorCategoriaId(categoria.id)
+            ItemService.getByCategoriaId(categoria.id)
             .then(result => {
                 setItens(result)
             });

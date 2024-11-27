@@ -4,23 +4,23 @@ import { IItem } from "../@libs/types";
 
 const _ENDPOINT = '/itens';
 
-const getItens= async (): Promise<IItem[]> => {
+const getItens = async (): Promise<IItem[]> => {
     const { data } = await API.get(_ENDPOINT)
     return data;
 }
 
-const getItensPorId = async (id: string): Promise<IItem> => {
+const getItensById = async (id: string): Promise<IItem> => {
     const { data } = await API.get(`${_ENDPOINT}/${id}`)
     return data;
 }
 
-const getPorCategoriaId = async (id: string): Promise<IItem[]> => {
-    const { data } = await API.get(`${_ENDPOINT}?categoriaId=${id}`)
+const getByCategoriaId = async (id: string): Promise<IItem[]> => {
+    const { data } = await API.get(`${_ENDPOINT}?categoryId=${id}`)
     return data;
 }
 
 export const ItemService = {
     getItens,
-    getPorCategoriaId,
-    getItensPorId
+    getByCategoriaId,
+    getItensById
 }

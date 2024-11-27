@@ -12,10 +12,10 @@ function HighLightSection() {
 
     useEffect(() => {
 
-        const itemId = (params.id) ? (params.id) : ''
+        const itemId = (params.id) ? (params.id) : 'ebe96f98-3bcc-48ea-a08a-8ceec077e0a3'
 
 
-        ItemService.getItensPorId(itemId)
+        ItemService.getItensById(itemId)
         .then(result => {
         if(result) setItem(result)
         })
@@ -31,7 +31,7 @@ function HighLightSection() {
                 <Stack
                     direction="row"
                 >
-                    <img src={`assets/${item.foto}`}/>
+                    <img src={`images/${item.foto}`}/>
                     <Stack
                         sx={{
                             display: 'flex',

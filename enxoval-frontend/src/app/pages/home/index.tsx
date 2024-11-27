@@ -5,34 +5,29 @@ import HighLightSection from "../../componentes/item-selecionado";
 import Section from "../../componentes/seccao";
 
 function HomePage() {
-
     const [categorias, setCategorias] = useState<ICategoria[]>([]);
-
-    useEffect(()=> {
+  
+    useEffect(() => {
       CategoriaService.getAll()
-      .then(result => {
-        console.log('=>', result)
-        setCategorias(result.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+        .then(result => {
+          console.log('=>', result);
+          setCategorias(result.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }, []);
+  
     return (
-        <main
-        style={{
-          marginTop: '8rem'
-        }}
-      >
-        <HighLightSection />
-        {
-          categorias.map(item => (
-            <Section key={item.id} categoria={item}/>
-          ))
-        }
-      </main>
-
-    )
-}
+      <div className="main-content">
+        <div className="content">
+          <HighLightSection />
+          {categorias.map(item => (
+            <Section key={item.id} categoria={item} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
 export default HomePage;

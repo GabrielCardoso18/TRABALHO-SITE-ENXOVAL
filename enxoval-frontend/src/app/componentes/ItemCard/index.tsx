@@ -17,7 +17,7 @@ function ItemCard({
                 minWidth: '10rem'
             }}
         >
-            <img src={`assets/${item.foto}`}
+            <img src={`images/${item.foto}`}
                 style={{
                     width: '100%'
                 }}
