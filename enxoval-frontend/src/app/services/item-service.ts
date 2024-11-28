@@ -15,12 +15,17 @@ const getItensById = async (id: string): Promise<IItem> => {
 }
 
 const getByCategoriaId = async (id: string): Promise<IItem[]> => {
-    const { data } = await API.get(`${_ENDPOINT}?categoryId=${id}`)
+    const { data } = await API.get(`${_ENDPOINT}?categoriaId=${id}`)
     return data;
 }
+
+const putItem = async (id: string, item: IItem) => {
+    return API.put(`${_ENDPOINT}/${id}`, item);
+  };
 
 export const ItemService = {
     getItens,
     getByCategoriaId,
-    getItensById
+    getItensById,
+    putItem
 }

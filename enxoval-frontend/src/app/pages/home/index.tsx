@@ -3,6 +3,8 @@ import { ICategoria } from "../../@libs/types";
 import { CategoriaService } from "../../services/categoria-service";
 import HighLightSection from "../../componentes/item-selecionado";
 import Section from "../../componentes/seccao";
+import MenuLateral from "../../componentes/menu-lateral";
+import './style.css';
 
 function HomePage() {
     const [categorias, setCategorias] = useState<ICategoria[]>([]);
@@ -21,10 +23,13 @@ function HomePage() {
     return (
       <div className="main-content">
         <div className="content">
-          <HighLightSection />
-          {categorias.map(item => (
-            <Section key={item.id} categoria={item} />
-          ))}
+          <MenuLateral />
+          <div className="highlight-container">
+            <HighLightSection />
+            {categorias.map((item) => (
+              <Section key={item.id} categoria={item} />
+            ))}
+          </div>
         </div>
       </div>
     );

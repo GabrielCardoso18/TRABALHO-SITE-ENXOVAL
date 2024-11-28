@@ -4,21 +4,15 @@ import Header from "./app/componentes/cabecalho"
 import Footer from "./app/componentes/roda-pe"
 
 function App() {
-
- 
-
   return (
     <div className="wrapper">
-      <Header/>
-      <div>
-        <Routes>
-          <Route path="/:id?" element={<HomePage/>} />
-        </Routes>
-      </div>
-      <Footer/>
+      <Header />
+          <Routes>
+            <Route path="/:id?" element={<HomePage />} />
+          </Routes>
+      <Footer />
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;

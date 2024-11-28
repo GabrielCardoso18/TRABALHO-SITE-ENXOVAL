@@ -19,15 +19,17 @@ function MenuLateral() {
 
     return (
         <Drawer
-          variant="permanent"
-          sx={{
+        variant="permanent"
+        sx={{
+            position: 'relative', 
             width: 240,
             flexShrink: 0,
             [`& .MuiDrawer-paper`]: {
-              width: 240,
-              boxSizing: 'border-box',
+            position: 'relative',
+            width: 240,
+            boxSizing: 'border-box',
             },
-          }}
+        }}
         >
           <Box p={2}>
             <ListItemButton>

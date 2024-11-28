@@ -1,0 +1,22 @@
+.main-content {
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+  }
+  
+  .content {
+    display: flex; 
+    flex: 1; 
+  }
+  
+  .menu-lateral {
+    width: 240px;
+    flex-shrink: 0; 
+  }
+  
+  .highlight-container {
+    flex: 1; 
+    display: flex;
+    flex-direction: column; 
+    overflow-y: auto; 
+  }
