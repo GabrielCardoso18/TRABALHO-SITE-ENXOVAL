@@ -39,7 +39,7 @@ export class CategoriaController {
     return this.service.save(categoria);
   }
 
-  @Put()
+  @Put(':id')
   async update(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() categoria: Categoria,
@@ -47,7 +47,7 @@ export class CategoriaController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('categoria não encontrada', HttpStatus.NOT_FOUND);
+      throw new HttpException('Item não encontrado', HttpStatus.NOT_FOUND);
     }
 
     categoria.id = found.id;
