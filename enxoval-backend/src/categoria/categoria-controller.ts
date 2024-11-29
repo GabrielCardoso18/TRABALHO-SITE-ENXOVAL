@@ -24,7 +24,7 @@ export class CategoriaController {
   }
 
   @Get(':id')
-  async findById(@Param('id', ParseIntPipe) id: string): Promise<Categoria> {
+  async findById(id: string): Promise<Categoria> {
     const found = await this.service.findById(id);
 
     if (!found) {

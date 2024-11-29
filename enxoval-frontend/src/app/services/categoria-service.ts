@@ -6,14 +6,18 @@ const _ENDPOINT = '/categorias';
 
 const getAll = () => (API.get(_ENDPOINT));
 const create = (categoria: ICategoria) => (API.post(_ENDPOINT, categoria));
-const getById = (id: string) => (API.get(`${_ENDPOINT}/${id}`));
 const update = (id: string, categoria: ICategoria) => (API.put(`${_ENDPOINT}/${id}`, categoria));
 const remove = (id: string) => (API.delete(`${_ENDPOINT}/${id}`));
+
+const buscaPorId = async (id: string) => {
+    const { data } = await API.get(`${_ENDPOINT}/${id}`)
+    return data;
+}
 
 export const CategoriaService = {
     getAll,
     create,
-    getById,
+    buscaPorId,
     update,
     remove
 }

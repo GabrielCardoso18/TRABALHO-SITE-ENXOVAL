@@ -3,8 +3,13 @@ import { ICategoria } from "../../@libs/types";
 import { useEffect, useState } from "react";
 import { CategoriaService } from "../../services/categoria-service";
 
+type MenuLateralProps = {
+    setCategoriaSelecionada: React.Dispatch<React.SetStateAction<ICategoria | null>>;
+  }
 
-function MenuLateral() {
+function MenuLateral({
+    setCategoriaSelecionada
+}: MenuLateralProps) {
     const [categorias, setCategorias] = useState<ICategoria[]>([]);
 
     useEffect(() => {
@@ -16,6 +21,7 @@ function MenuLateral() {
           console.error('Erro ao buscar categorias:', error);
         });
     }, []);
+
 
     return (
         <Drawer
@@ -31,16 +37,16 @@ function MenuLateral() {
             },
         }}
         >
-          <Box p={2}>
-            <ListItemButton>
-              <Typography variant="body1">Todos</Typography>
+        <Box p={2}>
+        <ListItemButton onClick={() => setCategoriaSelecionada(null)}>
+            <Typography variant="body1">Todos</Typography>
             </ListItemButton>
             {categorias.map((categoria) => (
-              <ListItemButton key={categoria.id}>
-                <Typography variant="body1">{categoria.descricao}</Typography>
-              </ListItemButton>
+                <ListItemButton key={categoria.id} onClick={() => setCategoriaSelecionada(categoria)}>
+                    <Typography variant="body1">{categoria.descricao}</Typography>
+                </ListItemButton>
             ))}
-          </Box>
+        </Box>
         </Drawer>
       );
 }
