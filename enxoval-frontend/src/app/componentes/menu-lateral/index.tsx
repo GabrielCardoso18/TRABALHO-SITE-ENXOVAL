@@ -5,7 +5,7 @@ import { CategoriaService } from "../../services/categoria-service";
 
 type MenuLateralProps = {
     setCategoriaSelecionada: React.Dispatch<React.SetStateAction<ICategoria | null>>;
-  }
+}
 
 function MenuLateral({
     setCategoriaSelecionada

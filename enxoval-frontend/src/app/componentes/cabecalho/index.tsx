@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography, TextField, InputAdornment, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-function Header() {
+function Cabecalho() {
   return (
     <AppBar position="static">
       <Toolbar sx={{ display: 'flex'}}>
@@ -48,4 +48,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Cabecalho;

@@ -4,10 +4,10 @@ import { Box, Button, Container, Stack, Typography, Dialog, DialogActions, Dialo
 import { ItemService } from "../../services/item-service";
 import { IItem } from "../../@libs/types";
 
-function HighLightSection() {
+function ItemSelecionado() {
     const params = useParams();
     const [item, setItem] = useState<IItem>({} as IItem);
-    const [openDialog, setOpenDialog] = useState(false);
+    const [openDialog, setAbrirDialog] = useState(false);
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
 
@@ -23,7 +23,7 @@ function HighLightSection() {
             });
     }, [params]);
 
-    const handleComprar = () => {
+    const comprar = () => {
         if (!item.id) {
             console.error("UUID do item não encontrado!");
             return; 
@@ -34,7 +34,7 @@ function HighLightSection() {
         ItemService.putItem(item.id, updatedItem)
             .then(() => {
                 console.log("Item comprado:", { nome, cpf });
-                setOpenDialog(false);  
+                setAbrirDialog(false);  
             })
             .catch((error) => {
                 console.error("Erro ao atualizar item:", error);
@@ -86,7 +86,7 @@ function HighLightSection() {
                         >
                             <Button
                                 variant="outlined"
-                                onClick={() => setOpenDialog(true)} 
+                                onClick={() => setAbrirDialog(true)} 
                             >
                                 Comprar
                             </Button>
@@ -95,7 +95,7 @@ function HighLightSection() {
                 </Stack>
             </Container>
 
-            <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+            <Dialog open={openDialog} onClose={() => setAbrirDialog(false)}>
                 <DialogTitle>Comprar Item</DialogTitle>
                 <DialogContent>
                     <TextField
@@ -114,8 +114,8 @@ function HighLightSection() {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
-                    <Button onClick={handleComprar} variant="contained" color="primary">
+                    <Button onClick={() => setAbrirDialog(false)}>Cancelar</Button>
+                    <Button onClick={comprar} variant="contained" color="primary">
                         Comprar
                     </Button>
                 </DialogActions>
@@ -124,4 +124,4 @@ function HighLightSection() {
     );
 }
 
-export default HighLightSection;
+export default ItemSelecionado;

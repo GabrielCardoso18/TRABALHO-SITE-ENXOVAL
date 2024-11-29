@@ -28,7 +28,7 @@ export class CategoriaController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('categoria not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Categoria não encontrada', HttpStatus.NOT_FOUND);
     }
 
     return found;
@@ -47,7 +47,7 @@ export class CategoriaController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('categoria not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('categoria não encontrada', HttpStatus.NOT_FOUND);
     }
 
     categoria.id = found.id;
@@ -60,7 +60,7 @@ export class CategoriaController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('category not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('categoria não encontrada', HttpStatus.NOT_FOUND);
     }
 
     return this.service.remove(id);

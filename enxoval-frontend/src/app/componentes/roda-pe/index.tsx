@@ -1,7 +1,7 @@
 import { Container, IconButton, Stack, Typography } from "@mui/material";
 import{Instagram, Facebook, WhatsApp} from "@mui/icons-material";
 
-function Footer() {
+function RodaPe() {
     return (
         <footer>
             <Container
@@ -35,4 +35,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default RodaPe;

@@ -35,7 +35,7 @@ export class ItemController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('Movie not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Item não encontrado', HttpStatus.NOT_FOUND);
     }
 
     return found;
@@ -54,7 +54,7 @@ export class ItemController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('movie not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Item não encontrado', HttpStatus.NOT_FOUND);
     }
 
     item.id = found.id;
@@ -67,7 +67,7 @@ export class ItemController {
     const found = await this.service.findById(id);
 
     if (!found) {
-      throw new HttpException('movie not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Item não encontrado', HttpStatus.NOT_FOUND);
     }
 
     return this.service.remove(id);
